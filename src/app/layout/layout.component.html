@@ -1,0 +1,58 @@
+<div class="navbar-container">
+
+    <mat-toolbar class="navbar" color="primary">
+        <a class="navbar-brand" [routerLink]="['/']">
+            <h1>
+                <mat-icon mat-list-icon>
+                    supervised_user_circle
+                </mat-icon>
+                Formation
+            </h1>
+        </a>
+
+        <span class="navbar-spacer"></span>
+    </mat-toolbar>
+
+    <mat-sidenav-container class="navbar-sidenav-container">
+        <mat-sidenav opened mode="side" class="sidenav">
+            <mat-nav-list>
+                <h3 mat-subheader>Home</h3>
+                <a mat-list-item [routerLink]="['/']" routerLinkActive="active">
+                    <mat-icon mat-list-icon>
+                        dashboard
+                    </mat-icon>
+                    <p mat-line> Home </p>
+                </a>
+
+                <a mat-list-item [routerLink]="['/add']" routerLinkActive="active">
+                    <mat-icon mat-list-icon>
+                        note_add
+                    </mat-icon>
+                    <p mat-line> Ajouter </p>
+                </a>
+
+                <a mat-list-item [routerLink]="['/update']" routerLinkActive="active">
+                    <mat-icon mat-list-icon>
+                        description
+                    </mat-icon>
+                    <p mat-line> Modifier </p>
+                </a>
+
+                <a mat-list-item [routerLink]="['/delete']" routerLinkActive="active">
+                    <mat-icon mat-list-icon>
+                        delete
+                    </mat-icon>
+                    <p mat-line> Supprimer </p>
+                </a>
+            </mat-nav-list>
+        </mat-sidenav>
+
+        <mat-sidenav-content class="sidenav-content">
+
+            <router-outlet></router-outlet>
+
+        </mat-sidenav-content>
+
+    </mat-sidenav-container>
+
+</div>

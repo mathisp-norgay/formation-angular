@@ -1,0 +1,42 @@
+<div class="container" fxLayout="row" fxLayoutAlign="center none">
+
+    <div fxFlex="95%">
+
+        <mat-card>
+            <mat-card-content>
+                <h2>Modifier un test</h2>
+
+                <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column">
+
+                    <mat-form-field appearance="fill">
+                        <mat-label>Choisissez un élément</mat-label>
+                        <mat-select (selectionChange)="onSelectTest($event.value)">
+                            <mat-option *ngFor="let test of testList" [value]="test">
+                                {{test.titre}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <form *ngIf="selectedTest">
+                        <div fxLayout="row">
+
+                            <mat-form-field class="full-width">
+                                <input matInput placeholder="Titre" (input)="onChangeTitre($event.target.value)">
+                            </mat-form-field>
+
+                            <mat-form-field class="full-width">
+                                <input matInput placeholder="Description"
+                                    (input)="onChangeDescription($event.target.value)">
+                            </mat-form-field>
+
+                            <button mat-raised-button color="primary" *ngIf="titre || description"
+                                (click)="onUpdateTest()">Enregistrer</button>
+
+                        </div>
+                    </form>
+
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
